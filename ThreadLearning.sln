@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadLearning", "ThreadLearning\ThreadLearning.csproj", "{7691140D-660F-4B8B-B75F-FAE275429DDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreadLearning", "ThreadLearning\ThreadLearning.csproj", "{7691140D-660F-4B8B-B75F-FAE275429DDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 0", "TP\Task 0.csproj", "{30CE8849-42FE-4626-B52B-ADD76CF237CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task 0", "TP\Task 0.csproj", "{30CE8849-42FE-4626-B52B-ADD76CF237CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 1_2", "Task 1\Task 1_2.csproj", "{9BEEF209-7706-4CD5-B1FB-82F3B19E237C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task 1_2", "Task 1\Task 1_2.csproj", "{9BEEF209-7706-4CD5-B1FB-82F3B19E237C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BasicThread", "BasicThread", "{2AA0AD63-E347-41B3-81D6-67AFA03CD4E2}"
 EndProject
@@ -15,9 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThreadPool", "ThreadPool", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThreadSync", "ThreadSync", "{399EEEB0-C925-4E64-8836-6F5BAE30389B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPTask", "PPTask\PPTask.csproj", "{72363535-831B-4B5B-8027-0447ABA7FE23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPTask", "PPTask\PPTask.csproj", "{72363535-831B-4B5B-8027-0447ABA7FE23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadSync", "ThreadSync\ThreadSync.csproj", "{52D07F71-2566-4EE4-BE2D-12CDF8009991}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreadSync", "ThreadSync\ThreadSync.csproj", "{52D07F71-2566-4EE4-BE2D-12CDF8009991}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opgave2", "Opgave2\Opgave2.csproj", "{24269B15-0DCE-43C4-A205-234143CED390}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{52D07F71-2566-4EE4-BE2D-12CDF8009991}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52D07F71-2566-4EE4-BE2D-12CDF8009991}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52D07F71-2566-4EE4-BE2D-12CDF8009991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24269B15-0DCE-43C4-A205-234143CED390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24269B15-0DCE-43C4-A205-234143CED390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24269B15-0DCE-43C4-A205-234143CED390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24269B15-0DCE-43C4-A205-234143CED390}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{9BEEF209-7706-4CD5-B1FB-82F3B19E237C} = {E8A358A5-F3EE-4816-A41A-E29C82457DDF}
 		{72363535-831B-4B5B-8027-0447ABA7FE23} = {399EEEB0-C925-4E64-8836-6F5BAE30389B}
 		{52D07F71-2566-4EE4-BE2D-12CDF8009991} = {399EEEB0-C925-4E64-8836-6F5BAE30389B}
+		{24269B15-0DCE-43C4-A205-234143CED390} = {399EEEB0-C925-4E64-8836-6F5BAE30389B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3DF3A100-24E9-44AE-9118-FC99FE1B7AD0}
