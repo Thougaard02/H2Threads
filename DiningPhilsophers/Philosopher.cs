@@ -19,13 +19,16 @@ namespace DiningPhilsophers
             LeftFork = this._philosofNumber;
             RightFork = (this._philosofNumber + 1) % 5;
         }
-        public void TakeFork()
+        public void PhilsofBeginEating()
         {
             while (true)
             {
                 lock (Forks)
                 {
                     Get(LeftFork, RightFork);
+                    //Below methods can be implemented here. Ask Mikkel what is best practices
+                    //Put(LeftFork, RightFork);
+                    //Waiting(LeftFork, RightFork);
                 }
             }
         }

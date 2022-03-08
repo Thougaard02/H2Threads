@@ -13,7 +13,7 @@ namespace DiningPhilsophers
 
             for (int i = 0; i < table.Philosophers.Length; i++)
             {
-                Thread thread = new Thread(table.Philosophers[i].TakeFork);
+                Thread thread = new Thread(table.Philosophers[i].PhilsofBeginEating);
                 thread.Start();
             }
         }
