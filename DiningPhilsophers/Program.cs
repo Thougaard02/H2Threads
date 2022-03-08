@@ -9,6 +9,7 @@ namespace DiningPhilsophers
         {
             Philosopher[] philosophers = new Philosopher[5];
 
+
             for (int i = 0; i < philosophers.Length; i++)
             {
                 philosophers[i] = new Philosopher(i);
