@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace DiningPhilsophers
+{
+    public class Fork
+    {
+        public bool IsTaken { get; set; }
+
+        public Fork(bool status)
+        {
+            IsTaken = status;
+        }
+    }
+}
