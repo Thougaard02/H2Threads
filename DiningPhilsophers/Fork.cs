@@ -6,11 +6,10 @@ namespace DiningPhilsophers
 {
     public class Fork
     {
-        public bool IsTaken { get; set; }
+        public bool IsTaken { get; set; } = false;
 
-        public Fork(bool status)
+        public Fork()
         {
-            IsTaken = status;
         }
     }
 }

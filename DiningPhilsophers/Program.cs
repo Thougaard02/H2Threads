@@ -5,19 +5,17 @@ namespace DiningPhilsophers
 {
     class Program
     {
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
-            Philosopher[] philosophers = new Philosopher[5];
+            Table table = new Table();
+            table.GenerateForks();
+            table.GeneratePhilosophers();
 
-
-            for (int i = 0; i < philosophers.Length; i++)
+            for (int i = 0; i < table.Philosophers.Length; i++)
             {
-                philosophers[i] = new Philosopher(i);
-                Thread thread = new Thread(philosophers[i].TakeFork);
+                Thread thread = new Thread(table.Philosophers[i].TakeFork);
                 thread.Start();
-                //thread.Join();
             }
-            Console.ReadKey();
         }
     }
 }

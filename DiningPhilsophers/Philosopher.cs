@@ -8,15 +8,13 @@ namespace DiningPhilsophers
     public class Philosopher
     {
         private int _philosofNumber;
-
-        static bool[] _forks = new bool[5];
-        public Fork[] Forks;
-        public int LeftFork { get; set; }
-        public int RightFork { get; set; }
-        Random Random = new Random();
-        public Philosopher(int philosofNumber)
+        private static Fork[] Forks;
+        private int LeftFork { get; set; }
+        private int RightFork { get; set; }
+        private Random Random = new Random();
+        public Philosopher(int philosofNumber, Fork[] forks)
         {
-            //Forks = new Fork[5];
+            Forks = forks;
             this._philosofNumber = philosofNumber;
             LeftFork = this._philosofNumber;
             RightFork = (this._philosofNumber + 1) % 5;
@@ -25,8 +23,7 @@ namespace DiningPhilsophers
         {
             while (true)
             {
-                lock (_forks)
-                //lock (Forks)
+                lock (Forks)
                 {
                     Get(LeftFork, RightFork);
                 }
@@ -36,18 +33,13 @@ namespace DiningPhilsophers
         {
             lock (this)
             {
-                if (_forks[RightFork] == false || _forks[LeftFork] == false)
-                //if (Forks[RightFork].IsTaken || Forks[LeftFork].IsTaken)
+                if (Forks[RightFork].IsTaken == false || Forks[LeftFork].IsTaken == false)
                 {
-                    _forks[leftFork] = true;
-                    _forks[rightFork] = true;
-
-                    //Forks[leftFork].IsTaken = true;
-                    //Forks[rightFork].IsTaken = true;
+                    Forks[leftFork].IsTaken = true;
+                    Forks[rightFork].IsTaken = true;
                     Console.WriteLine($"Philosof {_philosofNumber} is eating");
                     Thread.Sleep(Random.Next(1000, 5000));
-                    Monitor.PulseAll(_forks);
-                    //Monitor.PulseAll(Forks);
+                    Monitor.PulseAll(Forks);
                     Put(LeftFork, RightFork);
                 }
             }
@@ -56,11 +48,8 @@ namespace DiningPhilsophers
         {
             lock (this)
             {
-                _forks[leftFork] = false;
-                _forks[rightFork] = false;
-
-                //Forks[leftFork].IsTaken = true;
-                //Forks[rightFork].IsTaken = true;
+                Forks[leftFork].IsTaken = false;
+                Forks[rightFork].IsTaken = false;
                 Console.WriteLine($"...Philosof {this._philosofNumber} has finshed eating and laying down forks");
                 Waiting(leftFork, rightFork);
                 Monitor.PulseAll(this);
@@ -70,8 +59,7 @@ namespace DiningPhilsophers
         {
             lock (this)
             {
-                if (_forks[rightFork] == false || _forks[leftFork] == false)
-                //if (Forks[rightFork].IsTaken|| Forks[leftFork].IsTaken)
+                if (Forks[rightFork].IsTaken == false || Forks[leftFork].IsTaken == false)
                 {
                     Console.WriteLine($"......Philosof {this._philosofNumber} is waiting on a fork");
                     Thread.Sleep(Random.Next(1000, 5000));
