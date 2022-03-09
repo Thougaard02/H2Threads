@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace FlaskeAutomaten
 {
@@ -6,10 +7,22 @@ namespace FlaskeAutomaten
     {
         static void Main(string[] args)
         {
-            Producer producer = new Producer();
+            Manager manager = new Manager();
 
-            producer.Refill();
-            Console.ReadKey();
+            Thread producerThread = new Thread(manager.Refill);
+            Thread splitterThread = new Thread(manager.SplitDrinks);
+            Thread TruckTransportØlThread = new Thread(manager.TransferØl);
+            Thread TruckTransportVandThread = new Thread(manager.TransferVand);
+
+            producerThread.Start();
+            splitterThread.Start();
+            //TruckTransportØlThread.Start();
+            //TruckTransportVandThread.Start();
+
+            producerThread.Join();
+            splitterThread.Join();
+            //TruckTransportØlThread.Join();
+            //TruckTransportVandThread.Join();
         }
     }
 }

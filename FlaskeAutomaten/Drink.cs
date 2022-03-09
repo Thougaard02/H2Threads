@@ -9,14 +9,15 @@ namespace FlaskeAutomaten
         øl,
         vand
     }
-    class Drink
+    public class Drink
     {
         public Drinkvariety Drinkvariety { get; set; }
-        static Queue<Drink> _drinks = new Queue<Drink>();
+        public int DrinkNumber { get; set; }
 
-        public Drink(Drinkvariety variety)
+        public Drink(Drinkvariety variety, int drinkNumber)
         {
             Drinkvariety = variety;
+            DrinkNumber = drinkNumber;
         }
     }
 }

@@ -1,23 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace FlaskeAutomaten
 {
     public class Producer
     {
-        Queue<Drink> _drinks = new Queue<Drink>();
         Random random = new Random();
-        public void Refill()
+        public void RefillBuffer(Drink[] drinks)
         {
-            lock (_drinks)
+            while (true)
             {
-                foreach (Drink drink in _drinks)
+                lock (drinks)
                 {
-                    drink.Drinkvariety = Drinkvariety.øl;
-                    _drinks.Enqueue(drink);
-                    Console.WriteLine(drink.Drinkvariety);
+                    CheckIfRefillBufferIsFull(drinks);
+                    GenerateDrinks(drinks);
                 }
+            }
+        }
+        private void GenerateDrinks(Drink[] drinks)
+        {
+            for (int i = 0; i < drinks.Length; i++)
+            {
+                if (drinks[i] == null)
+                {
+                    drinks[i] = new Drink((Drinkvariety)random.Next(0, 2), random.Next(1, 10000));
+                    Console.WriteLine($"Generated {drinks[i].Drinkvariety}");
+                }
+            }
+            Monitor.PulseAll(drinks);
+        }
+        private void CheckIfRefillBufferIsFull(Drink[] drinks)
+        {
+            if (drinks.Length == 100)
+            {
+                Console.WriteLine("Refill buffer is full");
+                Monitor.Wait(drinks);
             }
         }
     }
