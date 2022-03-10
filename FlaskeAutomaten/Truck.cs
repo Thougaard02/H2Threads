@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace FlaskeAutomaten
 {
@@ -13,19 +14,36 @@ namespace FlaskeAutomaten
                 if (Splitter.øl[i] != null)
                 {
                     Splitter.øl[i] = null;
-                    Console.WriteLine("Øl is gone");
+                    Console.WriteLine("Øl is being transported");
                 }
             }
+            Monitor.PulseAll(Manager.drinks);
         }
 
         public void TransferVand()
         {
-            for (int i = 0; i < Splitter.vand.Length; i++)
+            lock (this)
             {
-                if (Splitter.vand[i] != null)
+                for (int i = 0; i < Splitter.vand.Length; i++)
                 {
-                    Splitter.vand[i] = null;
-                    Console.WriteLine("Vand is gone");
+                    if (Splitter.vand[i] != null)
+                    {
+                        Splitter.vand[i] = null;
+                        Console.WriteLine("Vand is being transported");
+                    }
+                }
+                Monitor.PulseAll(Manager.drinks);
+            }
+        }
+
+        public void TransportDrinks()
+        {
+            while (true)
+            {
+                lock (Manager.drinks)
+                {
+                    TransferØl();
+                    TransferVand();
                 }
             }
         }

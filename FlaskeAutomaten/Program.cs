@@ -11,18 +11,16 @@ namespace FlaskeAutomaten
 
             Thread producerThread = new Thread(manager.Refill);
             Thread splitterThread = new Thread(manager.SplitDrinks);
-            Thread TruckTransportØlThread = new Thread(manager.TransferØl);
-            Thread TruckTransportVandThread = new Thread(manager.TransferVand);
+            Thread transportThread = new Thread(manager.TransportDrinks);
 
             producerThread.Start();
             splitterThread.Start();
-            //TruckTransportØlThread.Start();
-            //TruckTransportVandThread.Start();
+            transportThread.Start();
 
             producerThread.Join();
             splitterThread.Join();
-            //TruckTransportØlThread.Join();
-            //TruckTransportVandThread.Join();
+            transportThread.Join();
+
         }
     }
 }

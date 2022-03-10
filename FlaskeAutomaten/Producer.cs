@@ -8,35 +8,35 @@ namespace FlaskeAutomaten
     public class Producer
     {
         Random random = new Random();
-        public void RefillBuffer(Drink[] drinks)
+        public void RefillBuffer()
         {
             while (true)
             {
-                lock (drinks)
+                lock (Manager.drinks)
                 {
-                    CheckIfRefillBufferIsFull(drinks);
-                    GenerateDrinks(drinks);
+                    CheckIfRefillBufferIsFull();
+                    GenerateDrinks();
                 }
             }
         }
-        private void GenerateDrinks(Drink[] drinks)
+        private void GenerateDrinks()
         {
-            for (int i = 0; i < drinks.Length; i++)
+            for (int i = 0; i < Manager.drinks.Length; i++)
             {
-                if (drinks[i] == null)
+                if (Manager.drinks[i] == null)
                 {
-                    drinks[i] = new Drink((Drinkvariety)random.Next(0, 2), random.Next(1, 10000));
-                    Console.WriteLine($"Generated {drinks[i].Drinkvariety}");
+                    Manager.drinks[i] = new Drink((Drinkvariety)random.Next(0, 2), random.Next(1, 10000));
+                    Console.WriteLine($"Generated {Manager.drinks[i].Drinkvariety}");
                 }
             }
-            Monitor.PulseAll(drinks);
+            Monitor.PulseAll(Manager.drinks);
         }
-        private void CheckIfRefillBufferIsFull(Drink[] drinks)
+        private void CheckIfRefillBufferIsFull()
         {
-            if (drinks.Length == 100)
+            if (Manager.drinks.Length == 10)
             {
                 Console.WriteLine("Refill buffer is full");
-                Monitor.Wait(drinks);
+                Monitor.Wait(Manager.drinks);
             }
         }
     }

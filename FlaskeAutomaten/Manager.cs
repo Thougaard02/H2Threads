@@ -8,29 +8,20 @@ namespace FlaskeAutomaten
     {
         Producer producer = new Producer();
         Splitter splitter = new Splitter();
-        Drink[] drinks = new Drink[100];
+        public static Drink[] drinks = new Drink[10];
         Truck Truck = new Truck();
-
         public void Refill()
         {
-            producer.RefillBuffer(drinks);
+            producer.RefillBuffer();
         }
 
         public void SplitDrinks()
         {
-            splitter.SplitDrinks(drinks);
+            splitter.SplitDrinks();
         }
-
-        public void TransferØl()
+        public void TransportDrinks()
         {
-            Truck.TransferØl();
+            Truck.TransportDrinks();
         }
-
-        public void TransferVand()
-        {
-            Truck.TransferVand();
-        }
-
-
     }
 }

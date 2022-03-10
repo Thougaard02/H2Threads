@@ -8,53 +8,53 @@ namespace FlaskeAutomaten
 {
     public class Splitter
     {
-        public static Drink[] øl = new Drink[100];
-        public static Drink[] vand = new Drink[100];
+        public static Drink[] øl = new Drink[10];
+        public static Drink[] vand = new Drink[10];
 
-        public void SplitDrinks(Drink[] drinks)
+        public void SplitDrinks()
         {
             while (true)
             {
-                lock (drinks)
+                lock (Manager.drinks)
                 {
-                    CheckIfSplitterIsEmpty(drinks);
-                    SortDrinks(drinks);
+                    CheckIfSplitterIsEmpty();
+                    SortDrinks();
                 }
             }
         }
 
-        private void CheckIfSplitterIsEmpty(Drink[] drinks)
+        private void CheckIfSplitterIsEmpty()
         {
-            if (drinks.Length == 0)
+            if (Manager.drinks.Length == 0)
             {
-                Monitor.Wait(drinks);
                 Console.WriteLine("Splitter is empty");
+                Monitor.Wait(Manager.drinks);
             }
         }
 
-        private void SortDrinks(Drink[] drinks)
+        private void SortDrinks()
         {
-            for (int i = 0; i < drinks.Length; i++)
+            for (int i = 0; i < Manager.drinks.Length; i++)
             {
-                if (drinks[i] != null)
+                if (Manager.drinks[i] != null)
                 {
-                    if (drinks[i].Drinkvariety == Drinkvariety.øl)
+                    if (Manager.drinks[i].Drinkvariety == Drinkvariety.øl)
                     {
-                        øl[i] = drinks[i];
-                        Console.WriteLine(øl[i]);
-                        //drinks[i] = null;
+                        øl[i] = Manager.drinks[i];
+                        Manager.drinks[i] = null;
                         Console.WriteLine($"{øl[i].Drinkvariety} has been sorted");
                     }
-                    else if (drinks[i].Drinkvariety == Drinkvariety.vand)
+                    else if (Manager.drinks[i].Drinkvariety == Drinkvariety.vand)
                     {
-                        vand[i] = drinks[i];
-                        Console.WriteLine(vand[i]);
-                        //drinks[i] = null;
+                        vand[i] = Manager.drinks[i];
+                        Manager.drinks[i] = null;
                         Console.WriteLine($"{vand[i].Drinkvariety} has been sorted");
                     }
                 }
             }
-            Monitor.PulseAll(drinks);
+            Monitor.PulseAll(Manager.drinks);
         }
+
+
     }
 }
