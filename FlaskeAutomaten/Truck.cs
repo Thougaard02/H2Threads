@@ -9,6 +9,7 @@ namespace FlaskeAutomaten
     {
         public void TransferØl()
         {
+
             for (int i = 0; i < Splitter.øl.Length; i++)
             {
                 if (Splitter.øl[i] != null)
@@ -22,18 +23,15 @@ namespace FlaskeAutomaten
 
         public void TransferVand()
         {
-            lock (this)
+            for (int i = 0; i < Splitter.vand.Length; i++)
             {
-                for (int i = 0; i < Splitter.vand.Length; i++)
+                if (Splitter.vand[i] != null)
                 {
-                    if (Splitter.vand[i] != null)
-                    {
-                        Splitter.vand[i] = null;
-                        Console.WriteLine("Vand is being transported");
-                    }
+                    Splitter.vand[i] = null;
+                    Console.WriteLine("Vand is being transported");
                 }
-                Monitor.PulseAll(Manager.drinks);
             }
+            Monitor.PulseAll(Manager.drinks);
         }
 
         public void TransportDrinks()
