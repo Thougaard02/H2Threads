@@ -37,11 +37,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiningPhilsophers", "Dining
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Producer-Consumer", "Producer-Consumer", "{C0433CF1-FE9B-4F11-8764-2D75A79D14DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProducerConsumer", "ProducerConsumer\ProducerConsumer.csproj", "{A71F5D6A-F731-4159-9E68-6E989539F49D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProducerConsumer", "ProducerConsumer\ProducerConsumer.csproj", "{A71F5D6A-F731-4159-9E68-6E989539F49D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Flaskeautomaten", "Flaskeautomaten", "{D9DAE42F-0E4F-4FE3-9962-FFA0525850B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlaskeAutomaten", "FlaskeAutomaten\FlaskeAutomaten.csproj", "{B74019F0-FA60-4F1D-BFD6-3E5A43DB333F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlaskeAutomaten", "FlaskeAutomaten\FlaskeAutomaten.csproj", "{B74019F0-FA60-4F1D-BFD6-3E5A43DB333F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bagagesorteringssystem", "Bagagesorteringssystem", "{BF95EC97-14D7-4DE6-9E9D-33AEC6126FC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bagagesorteringssystem", "Bagagesorteringssystem\Bagagesorteringssystem.csproj", "{A1C9C6A4-A8B6-45A7-B1EE-5766217474CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +89,10 @@ Global
 		{B74019F0-FA60-4F1D-BFD6-3E5A43DB333F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B74019F0-FA60-4F1D-BFD6-3E5A43DB333F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B74019F0-FA60-4F1D-BFD6-3E5A43DB333F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1C9C6A4-A8B6-45A7-B1EE-5766217474CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1C9C6A4-A8B6-45A7-B1EE-5766217474CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1C9C6A4-A8B6-45A7-B1EE-5766217474CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1C9C6A4-A8B6-45A7-B1EE-5766217474CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,6 +115,7 @@ Global
 		{A71F5D6A-F731-4159-9E68-6E989539F49D} = {C0433CF1-FE9B-4F11-8764-2D75A79D14DE}
 		{D9DAE42F-0E4F-4FE3-9962-FFA0525850B8} = {399EEEB0-C925-4E64-8836-6F5BAE30389B}
 		{B74019F0-FA60-4F1D-BFD6-3E5A43DB333F} = {D9DAE42F-0E4F-4FE3-9962-FFA0525850B8}
+		{A1C9C6A4-A8B6-45A7-B1EE-5766217474CD} = {BF95EC97-14D7-4DE6-9E9D-33AEC6126FC2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3DF3A100-24E9-44AE-9118-FC99FE1B7AD0}

@@ -18,6 +18,7 @@ namespace FlaskeAutomaten
                     Console.WriteLine("Øl is being transported");
                 }
             }
+            //The below is not necessary ask Mikkel why
             Monitor.PulseAll(Manager.drinks);
         }
 
@@ -31,6 +32,7 @@ namespace FlaskeAutomaten
                     Console.WriteLine("Vand is being transported");
                 }
             }
+            //The below is not necessary ask Mikkel why
             Monitor.PulseAll(Manager.drinks);
         }
 
