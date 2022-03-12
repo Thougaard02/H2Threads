@@ -4,7 +4,14 @@ using System.Text;
 
 namespace Bagagesorteringssystem
 {
-    class CentralServer
+    public class CentralServer
     {
+        public static Queue<Luggage> Luggage = new Queue<Luggage>();
+        public enum Destinations
+        {
+            Copenhagen,
+            Texas,
+            Egypten
+        }
     }
 }
