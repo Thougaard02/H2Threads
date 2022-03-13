@@ -12,10 +12,5 @@ namespace Bagagesorteringssystem
         {
             Reservation = reservation;
         }
-
-        public Luggage()
-        {
-
-        }
     }
 }

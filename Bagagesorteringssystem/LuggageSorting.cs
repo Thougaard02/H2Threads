@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using static Bagagesorteringssystem.CentralServer;
 
 namespace Bagagesorteringssystem
@@ -20,6 +21,12 @@ namespace Bagagesorteringssystem
 
         public void LuggageDestinationSorting()
         {
+
+            while (CheckIn.Luggages != null)
+            {
+                Monitor.Wait(_lock);
+                Console.WriteLine("Waits on luggages to be sorted");
+            }
             for (int i = 0; i < CheckIn.Luggages.Length; i++)
             {
                 if (CheckIn.Luggages[i].Reservation.Destinations == Destinations.Copenhagen)
@@ -41,6 +48,7 @@ namespace Bagagesorteringssystem
                     Console.WriteLine($"Luggages has been sorted to {EgyptenLuggages[i].Reservation.Destinations}");
                 }
             }
+            Monitor.PulseAll(_lock);
         }
     }
 }
