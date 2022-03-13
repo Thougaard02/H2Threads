@@ -46,7 +46,7 @@ namespace Bagagesorteringssystem
                     }
                 }
             }
-            //Monitor.PulseAll(_lock);
+            Monitor.PulseAll(_lock);
         }
     }
 }

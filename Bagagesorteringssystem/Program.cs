@@ -10,7 +10,6 @@ namespace Bagagesorteringssystem
         {
             CentralServer centralServer = new CentralServer();
 
-
             Thread threadCheckIn = new Thread(centralServer.MonitorCheckIn);
             Thread threadLuggageSorting = new Thread(centralServer.MonitorLuggageSorting);
             Thread threadTerminal = new Thread(centralServer.MonitorTerminal);

@@ -21,7 +21,6 @@ namespace Bagagesorteringssystem
 
         public void LuggageDestinationSorting()
         {
-
             while (CheckIn.Luggages != null)
             {
                 Monitor.Wait(_lock);
